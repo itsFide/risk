@@ -1,12 +1,16 @@
 $(function(){
 // Скролл
-function slowScroll(id){
-    $('html').animate({
-      scrollTop: $(id).offset().top
-    },800);
-  }
+
 
 });
+ // Бургер
+ let burger = document.querySelector('.burger');
+ let mobileMenu = document.querySelector('.mobile-menu')
+  burger.addEventListener('click', function(event){
+  burger.classList.toggle('active');
+  mobileMenu.classList.toggle('active')
+ })
+
 // Модальное окно
 let openModal = document.querySelectorAll('.open-modal');
 let modal = document.querySelector('.modal');
@@ -18,14 +22,7 @@ openModal.forEach((event)=>{
         modal.style.display = "block";
     })
 })
-closeModal.addEventListener('click', ()=>{
-    modal.style.display = "none";
-})
-window.addEventListener('click', (event)=>{
-    if(event.target == modal){
-        modal.style.display = "none";
-    }
-})
+
 $(function() {
     $('.marquee').marquee({
       duration: 10000,
@@ -33,3 +30,11 @@ $(function() {
       duplicated: true
     });
   });
+  closeModal.addEventListener('click', ()=>{
+    modal.style.display = "none";
+})
+window.addEventListener('click', (event)=>{
+    if(event.target == modal){
+        modal.style.display = "none";
+    }
+})

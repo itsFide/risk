@@ -247,6 +247,7 @@ a{
     }
     .js-marquee{
         margin-left: 0;
+        margin-right: 0;
     }
     &-list-wrapper{
         padding-top: 351px;
@@ -1022,5 +1023,83 @@ a{
 }
 .checkbox:checked + .check-style::before{
     display: block;
+}
+// burger
+.burger{
+    width: 25px;
+    display: none;
+    cursor: pointer;
+    height: 25px;
+    z-index: 100;
+    position: relative;
+    & span{
+        transition: all 0.3s;
+    }
+    & span:nth-child(1){
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #2D9CDB;
+    }
+    & span:nth-child(2){
+        position: absolute;
+        top: 12px;
+        width: 100%;
+        height: 2px;
+        background-color: #2D9CDB;
+    }
+    & span:nth-child(3){
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #2D9CDB;
+    }
+    &.active span:nth-child(1){
+       transform: rotate(45deg);
+       top: 10px;
+    }
+    &.active span:nth-child(3){
+        bottom: 13px;
+        transform: rotate(-45deg);
+    }
+    &.active span:nth-child(2){
+        display: none;
+    }
+}
+.mobile-menu{
+    position: absolute;
+    z-index: 10;
+    top: -100%;
+
+    transition: all 0.5s;
+    &.active{
+        top: 0%;
+    }
+    & .header-info{
+        display: block;
+        margin-top: 15px;
+    }
+    & .header-info-item-text{
+        margin-top: 15px;
+    }
+    & .header-info-item-text p,a{
+        
+        color: #2D9CDB;
+    }
+    &-list{
+        padding: 20px 20px;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+    &-list li{
+        margin-top: 20px;
+    }
+    &-link{
+        font-size: 20px;
+        color: #2D9CDB;
+        margin-top: 15px;
+    }
 }
 @import "media";
